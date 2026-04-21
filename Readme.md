@@ -1,0 +1,5 @@
+# Module 06 - Concurrency
+
+## Commit 1 Reflection notes
+
+In this first milestone, I implemented a basic TCP listener that binds to a local address to intercept incoming web requests. The core logic resides in the `handle_connection` function, which manages the data stream between the server and the client. I used `BufReader` to wrap the `TcpStream`, which allows for more efficient reading by buffering the input rather than making frequent system calls. By utilizing the `lines()` method combined with a `take_while` closure, the program can specifically identify the end of an HTTP request's headers, which is always marked by an empty line. This approach is quite effective for parsing simple requests, although at this stage, the server only prints the data to the terminal and does not yet send a response back to the browser. It was interesting to see how low-level networking is handled in Rust compared to the "magic" found in high-level frameworks like Spring Boot.
